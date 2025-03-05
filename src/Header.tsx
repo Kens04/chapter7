@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-export const Header = () => {
+export const Header: React.FC = () => {
   return (
     <div className="bg-slate-900 py-5 px-4">
       <div className="flex justify-between">

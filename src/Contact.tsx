@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Input } from "./components/Input";
 
-export const Contact = () => {
+export const Contact: React.FC = () => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");

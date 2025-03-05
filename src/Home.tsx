@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import "./App.css";
 import { useEffect, useState } from "react";
-import { Post, PostsResponse } from "./types/post";
+import { Post, PostsResponse } from "./types/Post";
 
-const Home = () => {
+const Home: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
 

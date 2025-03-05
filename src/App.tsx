@@ -5,7 +5,7 @@ import { Header } from "./Header";
 import { Contact } from "./Contact";
 import Home from "./Home";
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <div className="App">
       <Header />
