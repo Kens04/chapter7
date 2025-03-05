@@ -1,25 +1,18 @@
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
-type Post = {
-  thumbnailUrl: string;
-  createdAt: Date;
-  categories: string[];
-  title: string;
-  content: string;
-};
+import { Post, PostResponse } from "../types/post";
 
 export const PostDetail = () => {
-  const { id } = useParams();
+  const { id } = useParams<string>();
   const [posts, setPosts] = useState<Post>();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const fetchData = useCallback(async () => {
     try {
       const res = await fetch(
         `https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts/${id}`
       );
-      const data = await res.json();
+      const data = await res.json() as PostResponse;
       setPosts(data.post);
     } catch (error) {
       console.log(error);

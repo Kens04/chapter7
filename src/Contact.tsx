@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import { Input } from "./components/Input";
 
 export const Contact = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [errors, setErrors] = useState({ name: "", email: "", message: "" });
-  const [disabled, setDisabled] = useState(false);
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+  const [errors, setErrors] = useState<{
+    name: string;
+    email: string;
+    message: string;
+  }>({ name: "", email: "", message: "" });
+  const [disabled, setDisabled] = useState<boolean>(false);
 
   const handleClear = () => {
     setName("");

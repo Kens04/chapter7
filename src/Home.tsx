@@ -1,25 +1,18 @@
 import { Link } from "react-router-dom";
 import "./App.css";
 import { useEffect, useState } from "react";
-
-type Post = {
-  id: number;
-  createdAt: Date;
-  categories: string[];
-  title: string;
-  content: string;
-};
+import { Post, PostsResponse } from "./types/post";
 
 const Home = () => {
   const [posts, setPosts] = useState<Post[]>();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const fetchData = async () => {
     try {
       const res = await fetch(
         "https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts"
       );
-      const data = await res.json();
+      const data = await res.json() as PostsResponse;
       setPosts(data.posts);
     } catch (error) {
       console.log(error);
